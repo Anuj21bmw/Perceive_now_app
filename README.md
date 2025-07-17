@@ -2,51 +2,51 @@
 
 > **"Make Intelligence Feel Inevitable"** - Where every decision is backed by data, and every insight builds trust.
 
-## 🎯 Overview
+##  Overview
 
 Perceive Now is an enterprise intelligence dashboard that transforms raw data into actionable insights. Built as a UX-facing systems engineering project, it demonstrates how to create decision engines wrapped in intuition rather than traditional dashboards.
 
 **Key Philosophy**: Every click should justify a million-dollar strategy through transparent, traceable intelligence.
 
-## ✨ Features
+##  Features
 
-### 🔐 **Role-Based Authentication**
+### **Role-Based Authentication**
 - **Viewer Role**: Standard access to reports and basic analytics
 - **Reviewer Role**: Advanced access with detailed source analysis and feedback capabilities
 - **Quick Access**: One-click login buttons for seamless role switching
 - **JWT Security**: Token-based authentication with automatic session management
 
-### 📊 **Intelligence Dashboard**
+###  **Intelligence Dashboard**
 - **Real-time Statistics**: Live metrics showing report counts, confidence averages, and quality indicators
 - **Smart Filtering**: Filter reports by type, industry, and confidence threshold
 - **Visual Confidence Scoring**: Animated meters showing data reliability (0-100%)
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 
-### 📋 **Report Management**
+###  **Report Management**
 - **Comprehensive Reports**: Market analysis, competitive intelligence, risk assessments, financial forecasts
 - **Detailed View**: Slide-out panels with tabbed interface for deep exploration
 - **Executive Summaries**: Key findings and actionable insights prominently displayed
 - **Metadata Tracking**: Analyst information, methodologies, and data sources
 
-### 🔍 **Source Traceability** 
+###  **Source Traceability** 
 - **Complete Transparency**: Every insight backed by verifiable sources
 - **Reliability Scoring**: Data source quality ratings with visual indicators
 - **Methodology Details**: Expandable cards showing research methods and data collection processes
 - **Trust Building**: Users can verify the foundation of every recommendation
 
-### 💬 **Feedback System**
+###  **Feedback System**
 - **User Ratings**: 5-star rating system for report quality
 - **Section Flagging**: Ability to flag specific report sections for review
 - **Improvement Suggestions**: Text input for enhancement recommendations
 - **Continuous Loop**: Feedback directly improves future intelligence quality
 
-### 🎨 **Modern UX**
+###  **Modern UX**
 - **Dark/Light Mode**: Toggle between themes using custom brand colors
 - **Smooth Animations**: Framer Motion powered transitions and micro-interactions
 - **Enterprise Design**: Clean, professional interface built with Tailwind CSS
 - **Accessibility**: Keyboard navigation and screen reader support
 
-## 🚀 Quick Start (30 seconds)
+##  Quick Start (30 seconds)
 
 ### Prerequisites
 - Node.js 16+
@@ -74,7 +74,7 @@ npm start
 - **Backend API**: http://localhost:8001/docs
 - **Health Check**: http://localhost:8001/health
 
-## 🔐 Demo Credentials
+##  Demo Credentials
 
 ### Quick Access (Recommended)
 1. Visit http://localhost:3001
@@ -85,7 +85,7 @@ npm start
 - **Viewer Access**: `viewer_user` / `viewer_pass`
 - **Reviewer Access**: `reviewer_user` / `reviewer_pass`
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Frontend (React + TypeScript)
 ```
@@ -126,7 +126,7 @@ backend/
 - **Icons**: Lucide React
 - **Animation**: Framer Motion
 
-## 📡 API Endpoints
+##  API Endpoints
 
 ### Authentication
 - `POST /auth/token` - User login with credentials
@@ -146,7 +146,7 @@ backend/
 - `GET /` - API welcome message
 - `GET /health` - Health check endpoint
 
-## 🎨 Design System
+##  Design System
 
 ### Color Palette
 - **Primary Purple**: `#3F1470` - Main brand color, primary actions
@@ -168,7 +168,7 @@ backend/
 - **Navigation**: Sticky header with role indicators
 - **Animations**: Smooth transitions, loading states, micro-interactions
 
-## 🔧 Development
+##  Development
 
 ### Development Commands
 ```bash
@@ -202,7 +202,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 - **Error Handling**: Comprehensive try-catch blocks
 - **CORS**: Properly configured for development and production
 
-## 🚀 Production Considerations
+##  Production Considerations
 
 ### Security
 - JWT tokens with expiration
@@ -231,7 +231,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 - **Database**: AWS RDS, Google Cloud SQL, MongoDB Atlas
 - **CI/CD**: GitHub Actions, GitLab CI, Jenkins
 
-## 🎯 User Experience Highlights
+##  User Experience Highlights
 
 ### Trust-Focused Design
 - **Confidence Scoring**: Every report shows reliability metrics
@@ -251,7 +251,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 - **Responsive Design**: Seamless experience across all device sizes
 - **Offline Capability**: Core features work without internet connection
 
-## 🎬 Demo Walkthrough
+##  Demo Walkthrough
 
 ### Recommended Demo Flow
 1. **Login**: Use quick access buttons to demonstrate role switching
@@ -268,7 +268,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 - Highlight **smooth animations** that enhance user experience
 - Point out **enterprise-grade design** suitable for executive use
 
-## 📈 Future Enhancements
+##  Future Enhancements
 
 ### Phase 1 (1-2 weeks)
 - Real-time data integration
