@@ -1,7 +1,7 @@
 // src/components/LoginForm.tsx
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, User, Lock, Eye, EyeOff } from 'lucide-react';
+import { Shield, User, Lock, Eye, EyeOff, UserCheck, Crown } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -28,9 +28,33 @@ const LoginForm: React.FC = () => {
     }
   };
 
+  const quickLogin = (role: 'viewer' | 'reviewer') => {
+    if (role === 'viewer') {
+      setUsername('viewer_user');
+      setPassword('viewer_pass');
+    } else {
+      setUsername('reviewer_user');
+      setPassword('reviewer_pass');
+    }
+  };
+
   const demoCredentials = [
-    { username: 'viewer_user', password: 'viewer_pass', role: 'Viewer' },
-    { username: 'reviewer_user', password: 'reviewer_pass', role: 'Reviewer' },
+    { 
+      username: 'viewer_user', 
+      password: 'viewer_pass', 
+      role: 'Viewer',
+      description: 'Standard access to reports and basic features',
+      icon: UserCheck,
+      color: 'bg-perceive-purple hover:bg-perceive-purple-light'
+    },
+    { 
+      username: 'reviewer_user', 
+      password: 'reviewer_pass', 
+      role: 'Reviewer',
+      description: 'Advanced access with detailed analytics and feedback',
+      icon: Crown,
+      color: 'bg-perceive-gold hover:bg-perceive-gold-dark'
+    },
   ];
 
   return (
@@ -61,6 +85,52 @@ const LoginForm: React.FC = () => {
             }`}>
               Intelligence Engine Access
             </p>
+          </div>
+
+          {/* Quick Access Buttons */}
+          <div className="mb-6">
+            <h3 className={`text-sm font-medium mb-3 ${
+              isDark ? 'text-dark-text' : 'text-gray-700'
+            }`}>
+              Quick Access:
+            </h3>
+            <div className="grid grid-cols-1 gap-3">
+              {demoCredentials.map((cred, index) => {
+                const Icon = cred.icon;
+                return (
+                  <motion.button
+                    key={index}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => quickLogin(cred.role.toLowerCase() as 'viewer' | 'reviewer')}
+                    className={`${cred.color} text-white p-4 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl`}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <Icon className="w-6 h-6" />
+                      <div className="text-left">
+                        <div className="font-semibold">{cred.role}</div>
+                        <div className="text-sm opacity-90">{cred.description}</div>
+                      </div>
+                    </div>
+                  </motion.button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="relative mb-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className={`w-full border-t ${
+                isDark ? 'border-dark-border' : 'border-gray-300'
+              }`} />
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className={`px-2 ${
+                isDark ? 'bg-dark-surface text-dark-text-secondary' : 'bg-white text-gray-500'
+              }`}>
+                Or sign in manually
+              </span>
+            </div>
           </div>
 
           {/* Login Form */}
@@ -119,9 +189,13 @@ const LoginForm: React.FC = () => {
             </div>
 
             {error && (
-              <div className="p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg"
+              >
                 {error}
-              </div>
+              </motion.div>
             )}
 
             <button
@@ -137,38 +211,20 @@ const LoginForm: React.FC = () => {
             </button>
           </form>
 
-          {/* Demo Credentials */}
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <h3 className={`text-sm font-medium mb-3 ${
-              isDark ? 'text-dark-text' : 'text-gray-700'
+          {/* Demo Credentials Reference */}
+          <div className="mt-6 pt-6 border-t border-gray-200">
+            <h3 className={`text-xs font-medium mb-2 ${
+              isDark ? 'text-dark-text-secondary' : 'text-gray-500'
             }`}>
               Demo Credentials:
             </h3>
-            <div className="space-y-2">
+            <div className="space-y-1">
               {demoCredentials.map((cred, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setUsername(cred.username);
-                    setPassword(cred.password);
-                  }}
-                  className={`w-full p-3 rounded-lg border text-left hover:bg-opacity-50 transition-colors ${
-                    isDark 
-                      ? 'border-dark-border bg-dark-surface-elevated hover:bg-gray-700' 
-                      : 'border-gray-200 bg-gray-50 hover:bg-gray-100'
-                  }`}
-                >
-                  <div className={`font-medium ${
-                    isDark ? 'text-dark-text' : 'text-gray-900'
-                  }`}>
-                    {cred.role}
-                  </div>
-                  <div className={`text-sm ${
-                    isDark ? 'text-dark-text-secondary' : 'text-gray-600'
-                  }`}>
-                    {cred.username} / {cred.password}
-                  </div>
-                </button>
+                <div key={index} className={`text-xs ${
+                  isDark ? 'text-dark-text-secondary' : 'text-gray-500'
+                }`}>
+                  <span className="font-mono">{cred.username}</span> / <span className="font-mono">{cred.password}</span>
+                </div>
               ))}
             </div>
           </div>
